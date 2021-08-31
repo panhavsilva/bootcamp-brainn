@@ -1,7 +1,9 @@
+import Title from './title'
+
 function Header() {
   return(
     <header>
-      <h1>Bootcamp B.Academy</h1>
+      <Title size='1'>Bootcamp B.Academy</Title>
     </header>
   )
 }
