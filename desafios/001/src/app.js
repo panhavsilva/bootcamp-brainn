@@ -1,6 +1,18 @@
+import Header from './components/header'
+import Menu from './components/menu'
+import Sidebar from './components/sidebar'
+import Content from './components/content'
+import Footer from './components/footer'
+
 function App () {
   return(
-    <h1>App</h1>
+    <>
+      <Header />
+      <Menu />
+      <Sidebar />
+      <Content />
+      <Footer />
+    </>
   )
 }
 
