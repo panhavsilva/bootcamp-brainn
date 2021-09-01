@@ -1,4 +1,3 @@
-import Nav from './nav'
 const menu = [
   {
     id: 'menu',
@@ -9,7 +8,7 @@ const menu = [
     title: 'Sobre',
   },
   {
-    id: 'como-funciona',
+    id: 'como',
     title: 'Como funciona',
   },
   {
@@ -20,7 +19,15 @@ const menu = [
 
 function Menu() {
   return (
-    <Nav name='menu' items={menu}/>
+    <nav>
+      <ul>
+        {menu.map((item) => (
+          <li key={item.id}>
+            <a href='/'> {item.title} </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
 

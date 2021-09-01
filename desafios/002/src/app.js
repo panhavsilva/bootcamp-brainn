@@ -11,9 +11,9 @@ const articles = [
     content: `
       Donec nulla urna, dictum ut ultrices imperdiet, varius mollis justo. 
       Nulla nec tempor mi. Mauris mattis velit tortor, in aliquet nunc dapibus non. 
-      Nullam bibendum imperdiet elit non vestibulum.
-      Quisque quis sollicitudin elit, vitae imperdiet augue.
-      Morbi vestibulum elit at interdum tempor. Etiam at sagittis arcu.
+      Nullam bibendum imperdiet elit non vestibulum. 
+      Quisque quis sollicitudin elit, vitae imperdiet augue. 
+      Morbi vestibulum elit at interdum tempor. Etiam at sagittis arcu. 
     `
   },
   {
@@ -64,7 +64,7 @@ function App() {
       <Header />
       <Menu />
       <Sidebar items={articles}/>
-      <Content />
+      <Content text={articles}/>
       <Footer />
     </>
   )
