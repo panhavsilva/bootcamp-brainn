@@ -1,6 +1,5 @@
 import Header from './components/header'
 import Menu from './components/menu'
-import Sidebar from './components/sidebar'
 import Content from './components/content'
 import Footer from './components/footer'
 
@@ -63,7 +62,6 @@ function App() {
     <>
       <Header />
       <Menu />
-      <Sidebar items={articles}/>
       <Content text={articles}/>
       <Footer />
     </>

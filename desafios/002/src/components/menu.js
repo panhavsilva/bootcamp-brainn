@@ -23,7 +23,7 @@ function Menu() {
       <ul>
         {menu.map((item) => (
           <li key={item.id}>
-            <a href='/'> {item.title} </a>
+            <a> {item.title} </a>
           </li>
         ))}
       </ul>
