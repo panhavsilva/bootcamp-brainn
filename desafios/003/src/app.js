@@ -17,7 +17,7 @@ async function getCars(url, setCarList, setMessageError) {
   return
 }
 
-async function createCar(url, car, setCar, setMessageError) {
+async function createCar(url, car, setCar, setMessageError, setCarsList) {
   if (!car.image) { return }
 
   const result = await post(url, car)
@@ -27,11 +27,12 @@ async function createCar(url, car, setCar, setMessageError) {
 
   setCar({})
   setMessageError('')
+  getCars(url, setCarsList, setMessageError)
 
   return console.log(result.message)
 }
 
-async function deleteCar(url, plate, setCarDelete, setMessageError) {
+async function deleteCar(url, plate, setCarDelete, setMessageError, setCarsList) {
   if(plate === ''){ return }
 
   const result = await del(url, { plate })
@@ -41,6 +42,7 @@ async function deleteCar(url, plate, setCarDelete, setMessageError) {
 
   setCarDelete('')
   setMessageError('')
+  getCars(url, setCarsList, setMessageError)
 
   return console.log(result.message)
 }
@@ -52,14 +54,11 @@ function App() {
   const [messageError, setMessageError] = useState('')
 
   useEffect(() => {  
-    createCar(url, car, setCar, setMessageError)
-    deleteCar(url, carDelete, setCarDelete, setMessageError)
-    getCars(url, setCarsList, setMessageError)
-
-    return () => {
-      
-    }
-  }, [car, carDelete])
+    createCar(url, car, setCar, setMessageError, setCarsList)
+  }, [car])
+  useEffect(() => {
+    deleteCar(url, carDelete, setCarDelete, setMessageError, setCarsList)
+  }, [carDelete])
 
   return (
     <>

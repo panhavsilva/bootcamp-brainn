@@ -10,9 +10,9 @@ function Form ({setCar}) {
       color: target.elements.color.value,
     }
     
-    document.querySelector('#image').focus()
     setCar(data)
     event.target.reset()
+    event.target.elements.image.focus()
   }
 
   return (
