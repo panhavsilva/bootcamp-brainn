@@ -9,24 +9,19 @@ const url = 'http://localhost:3333/cars'
 async function getCars(url, setCarList, setMessageError) {
   const result = await get(url)
   if (result.error) {
-    console.log('Erro ao buscar: ', result.message)
     return setMessageError(result.message)
   }
 
   setCarList(result)
-  setMessageError('')
 
   return
 }
 
-async function createCar(car, setCar, setMessageError) {
-  if (!car.image) {
-    return
-  }
+async function createCar(url, car, setCar, setMessageError) {
+  if (!car.image) { return }
 
   const result = await post(url, car)
   if (result.error) {
-    console.log('Erro no cadastro: ', result.message)
     return setMessageError(result.message)
   }
 
@@ -36,17 +31,17 @@ async function createCar(car, setCar, setMessageError) {
   return console.log(result.message)
 }
 
-async function deleteCar(plate, setCarDelete, setMessageError) {
+async function deleteCar(url, plate, setCarDelete, setMessageError) {
   if(plate === ''){ return }
+
   const result = await del(url, { plate })
   if (result.error) {
-    console.log('Erro ao detetar: ', result.message)
     return setMessageError(result.message)
   }
 
   setCarDelete('')
   setMessageError('')
-  
+
   return console.log(result.message)
 }
 
@@ -57,8 +52,8 @@ function App() {
   const [messageError, setMessageError] = useState('')
 
   useEffect(() => {  
-    createCar(car, setCar, setMessageError)
-    deleteCar(carDelete, setCarDelete, setMessageError)
+    createCar(url, car, setCar, setMessageError)
+    deleteCar(url, carDelete, setCarDelete, setMessageError)
     getCars(url, setCarsList, setMessageError)
 
     return () => {

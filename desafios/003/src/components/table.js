@@ -1,9 +1,3 @@
-async function handleDelete(event, deleteCar) {
-  const button = event.target
-  const plate = button.dataset.plate
-  return deleteCar(plate)
-}
-
 function NoCarRow () {
   return (
     <tr>
@@ -17,6 +11,12 @@ function NoCarRow () {
 }
 
 function Row ({ data, deleteCar }) {
+  function handleDelete(event, deleteCar) {
+    const button = event.target
+    const plate = button.dataset.plate
+    return deleteCar(plate)
+  }
+
   return (
     <tr>
       <td>
